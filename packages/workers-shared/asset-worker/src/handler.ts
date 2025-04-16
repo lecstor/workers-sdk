@@ -199,8 +199,8 @@ export const canFetch = async (
 	exists: typeof EntrypointType.prototype.unstable_exists
 ): Promise<boolean> => {
 	if (
-		new URL(t14.url).pathname.startsWith("/auth/")
-		  || !(
+		new URL(request.url).pathname.startsWith("/auth/") ||
+		!(
 			flagIsEnabled(
 				configuration,
 				SEC_FETCH_MODE_NAVIGATE_HEADER_PREFERS_ASSET_SERVING
