@@ -941,6 +941,7 @@ export type Assets = {
 	 * If false, then respond to requests that match an asset with that asset directly.
 	 * */
 	run_worker_first?: boolean;
+	worker_route?: string;
 };
 
 export interface Observability {
