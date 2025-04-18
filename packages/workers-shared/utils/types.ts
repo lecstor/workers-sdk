@@ -62,6 +62,7 @@ export const AssetConfigSchema = z.object({
 			"none",
 		])
 		.optional(),
+	worker_route: z.string().optional(),
 	not_found_handling: z
 		.enum(["single-page-application", "404-page", "none"])
 		.optional(),
