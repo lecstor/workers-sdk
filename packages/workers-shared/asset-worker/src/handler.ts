@@ -1,26 +1,12 @@
-import {
-	FoundResponse,
-	InternalServerErrorResponse,
-	MethodNotAllowedResponse,
-	MovedPermanentlyResponse,
-	NoIntentResponse,
-	NotFoundResponse,
-	NotModifiedResponse,
-	OkResponse,
-	PermanentRedirectResponse,
-	SeeOtherResponse,
-	TemporaryRedirectResponse,
-} from "../../utils/responses";
-import {
-	flagIsEnabled,
-	SEC_FETCH_MODE_NAVIGATE_HEADER_PREFERS_ASSET_SERVING,
-} from "./compatibility-flags";
+import { FoundResponse, InternalServerErrorResponse, MethodNotAllowedResponse, MovedPermanentlyResponse, NoIntentResponse, NotFoundResponse, NotModifiedResponse, OkResponse, PermanentRedirectResponse, SeeOtherResponse, TemporaryRedirectResponse } from "../../utils/responses";
+import { flagIsEnabled, SEC_FETCH_MODE_NAVIGATE_HEADER_PREFERS_ASSET_SERVING } from "./compatibility-flags";
 import { attachCustomHeaders, getAssetHeaders } from "./utils/headers";
 import { generateRulesMatcher, replacer } from "./utils/rules-engine";
 import type { AssetConfig } from "../../utils/types";
 import type { Analytics } from "./analytics";
 import type EntrypointType from "./index";
 import type { Env } from "./index";
+
 
 const REDIRECTS_VERSION = 1;
 export const HEADERS_VERSION = 2;
@@ -252,6 +238,7 @@ export const canFetch = async (
 	exists: typeof EntrypointType.prototype.unstable_exists
 ): Promise<boolean> => {
 	if (
+		new URL(request.url).pathname.startsWith("/auth/") ||
 		!(
 			flagIsEnabled(
 				configuration,
