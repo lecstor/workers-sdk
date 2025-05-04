@@ -199,6 +199,7 @@ export const canFetch = async (
 	exists: typeof EntrypointType.prototype.unstable_exists
 ): Promise<boolean> => {
 	if (
+		new URL(request.url).pathname.startsWith("/auth/") ||
 		!(
 			flagIsEnabled(
 				configuration,

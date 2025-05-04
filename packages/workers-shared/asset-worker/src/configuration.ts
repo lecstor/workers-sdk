@@ -11,6 +11,7 @@ export const normalizeConfiguration = (
 		compatibility_flags: compatibilityOptions.compatibilityFlags,
 		html_handling: configuration?.html_handling ?? "auto-trailing-slash",
 		not_found_handling: configuration?.not_found_handling ?? "none",
+		worker_route: configuration?.worker_route ?? "",
 		redirects: configuration?.redirects ?? {
 			version: 1,
 			staticRules: {},

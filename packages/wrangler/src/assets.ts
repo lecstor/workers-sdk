@@ -470,6 +470,7 @@ export function getAssetsOptions(
 	const assetConfig: AssetConfig = {
 		html_handling: config.assets?.html_handling,
 		not_found_handling: config.assets?.not_found_handling,
+		worker_route: config.assets?.worker_route,
 		// The _redirects and _headers files are parsed in Miniflare in dev and parsing is not required for deploy
 		compatibility_date: config.compatibility_date,
 		compatibility_flags: config.compatibility_flags,
